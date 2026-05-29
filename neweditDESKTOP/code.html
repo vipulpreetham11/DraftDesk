@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>DraftDesk - Edit Script</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&amp;family=Source+Sans+3:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed": "#e8e1db",
+                        "on-error": "#ffffff",
+                        "primary-dark": "#C45A32",
+                        "secondary": "#625e59",
+                        "on-tertiary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed": "#390c00",
+                        "on-tertiary-container": "#003335",
+                        "surface-container-highest": "#f3ded8",
+                        "on-surface-variant": "#57423b",
+                        "on-secondary-fixed": "#1e1b17",
+                        "background": "#fff8f6",
+                        "primary-light": "#F4A98B",
+                        "tertiary-fixed-dim": "#5cd8dd",
+                        "inverse-on-surface": "#ffede8",
+                        "on-error-container": "#93000a",
+                        "amber": "#F5C563",
+                        "on-primary-fixed-variant": "#822803",
+                        "surface-container-low": "#fff1ed",
+                        "surface-container": "#fee9e3",
+                        "tertiary-container": "#00a5aa",
+                        "surface-bright": "#fff8f6",
+                        "error-container": "#ffdad6",
+                        "neutral-50": "#FAF8F5",
+                        "on-secondary-fixed-variant": "#4a4642",
+                        "neutral-600": "#5C5750",
+                        "inverse-primary": "#ffb59d",
+                        "neutral-200": "#E8E4DE",
+                        "surface-variant": "#f3ded8",
+                        "outline-variant": "#dec0b7",
+                        "surface-container-high": "#f9e4de",
+                        "primary-fixed-dim": "#ffb59d",
+                        "primary-fixed": "#ffdbd0",
+                        "tertiary-fixed": "#7bf5fa",
+                        "primary": "#a23f1a",
+                        "primary-container": "#e8734a",
+                        "outline": "#8a726a",
+                        "amber-light": "#FCE8B8",
+                        "secondary-container": "#e5ded8",
+                        "on-surface": "#241916",
+                        "surface-container-lowest": "#ffffff",
+                        "error": "#ba1a1a",
+                        "charcoal-light": "#4A4540",
+                        "inverse-surface": "#3a2e2a",
+                        "on-primary-container": "#581700",
+                        "tertiary": "#00696d",
+                        "surface-tint": "#a23f1a",
+                        "on-tertiary-fixed": "#002021",
+                        "surface": "#fff8f6",
+                        "on-background": "#241916",
+                        "on-secondary-container": "#66625d",
+                        "on-secondary": "#ffffff",
+                        "neutral-100": "#F3F0EB",
+                        "on-tertiary-fixed-variant": "#004f52",
+                        "neutral-300": "#C9C4BC",
+                        "secondary-fixed-dim": "#ccc5bf",
+                        "surface-dim": "#ead6d0"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "1.5rem",
+                        "stack-lg": "2rem",
+                        "margin-page": "2rem",
+                        "stack-md": "1rem",
+                        "stack-sm": "0.5rem"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Outfit"],
+                        "body-lg": ["Source Sans 3"],
+                        "headline-md": ["Outfit"],
+                        "label-sm": ["Source Sans 3"],
+                        "body-md": ["Source Sans 3"],
+                        "label-md": ["Source Sans 3"],
+                        "body-sm": ["Source Sans 3"],
+                        "headline-xl": ["Outfit"],
+                        "headline-sm": ["Outfit"],
+                        "headline-lg-mobile": ["Outfit"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "label-sm": ["12px", {"lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-md": ["14px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "500"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .skeleton {
+            background: linear-gradient(90deg, #E8E4DE 25%, #F3F0EB 50%, #E8E4DE 75%);
+            background-size: 200% 100%;
+            animation: skeleton-pulse 1.5s infinite;
+        }
+        @keyframes skeleton-pulse {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .coral-border { border-left: 4px solid #a23f1a; }
+        .amber-border { border-left: 4px solid #F5C563; }
+        .warm-border { border-left: 4px solid #C9C4BC; }
+    </style>
+</head>
+<body class="bg-neutral-50 min-h-screen text-on-surface font-body-md">
+<!-- Top Navigation Bar -->
+<header class="w-full top-0 sticky z-50 bg-background dark:bg-background flex justify-between items-center px-margin-page py-stack-md max-w-7xl mx-auto">
+<div class="flex items-center gap-stack-md">
+<a class="flex items-center text-secondary hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined mr-1">arrow_back</span>
+<span class="font-label-md text-label-md">Back</span>
+</a>
+<div class="h-6 w-[1px] bg-neutral-200 mx-2"></div>
+<input class="font-headline-sm text-headline-sm bg-transparent border-none focus:ring-0 text-primary font-bold p-0 w-64" placeholder="Script Title" type="text" value="Untitled Script #4"/>
+</div>
+<div class="flex items-center gap-stack-md">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-secondary">STATUS</span>
+<select class="bg-amber-light text-on-surface border-none rounded-lg font-label-md text-label-md px-3 py-1 focus:ring-primary">
+<option>Draft</option>
+<option>Review</option>
+<option>Ready</option>
+</select>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-secondary">PLATFORM</span>
+<select class="bg-neutral-100 border-none rounded-lg font-label-md text-label-md px-3 py-1 focus:ring-primary">
+<option>YouTube</option>
+<option>Instagram</option>
+<option>TikTok</option>
+</select>
+</div>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-[10px] font-bold font-label-md text-label-md hover:bg-primary-dark transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px]">save</span>
+                Save
+            </button>
+</div>
+</header>
+<main class="max-w-7xl mx-auto px-margin-page py-stack-lg grid grid-cols-12 gap-gutter">
+<!-- Left Column: Editor (60%) -->
+<section class="col-span-12 lg:col-span-7 space-y-stack-lg">
+<!-- AI Generation Tool -->
+<div class="bg-neutral-100 p-stack-md rounded-xl shadow-sm border border-neutral-200">
+<label class="block font-label-sm text-label-sm text-secondary mb-2">WHATS THE TOPIC?</label>
+<div class="flex gap-stack-sm">
+<input class="flex-grow bg-surface-container-lowest border-neutral-200 rounded-lg px-4 py-3 focus:ring-primary focus:border-primary" placeholder="e.g. 5 Productivity hacks for remote designers" type="text"/>
+<button class="bg-primary-container text-on-primary-container px-5 py-3 rounded-lg font-bold flex items-center gap-2 hover:opacity-90 transition-opacity" id="generateBtn"><span class="material-symbols-outlined">auto_awesome</span>Generate script</button>
+</div>
+</div>
+<!-- Loading Skeleton (Hidden by default, triggered via JS) -->
+<div class="hidden space-y-stack-md" id="skeletonLoader">
+<div class="skeleton h-32 w-full rounded-xl"></div>
+<div class="skeleton h-64 w-full rounded-xl"></div>
+<div class="skeleton h-32 w-full rounded-xl"></div>
+</div>
+<!-- Main Editor Sections -->
+<div class="space-y-stack-lg" id="editorContent">
+<!-- Hook Section -->
+<div class="bg-surface-container-lowest p-stack-md rounded-xl shadow-sm coral-border border-l-[4px]" style="border-left-color: #E8734A;">
+<div class="flex justify-between items-center mb-stack-sm">
+<h3 class="font-headline-sm text-headline-sm text-primary">Hook</h3>
+<span class="font-label-sm text-label-sm text-secondary">00:00 - 00:15</span>
+</div>
+<textarea class="w-full border-none focus:ring-0 p-0 text-body-md min-h-[100px] resize-none" placeholder="Grab their attention in the first 5 seconds..."></textarea>
+</div>
+<!-- Body Section -->
+<div class="bg-surface-container-lowest p-stack-md rounded-xl shadow-sm amber-border border-l-[4px]" style="border-left-color: #F5C563;">
+<div class="flex justify-between items-center mb-stack-sm">
+<h3 class="font-headline-sm text-headline-sm text-amber">Body Content</h3>
+<span class="font-label-sm text-label-sm text-secondary">00:15 - 02:30</span>
+</div>
+<textarea class="w-full border-none focus:ring-0 p-0 text-body-md min-h-[300px] resize-none" placeholder="Start by addressing the biggest pain point solo creators face: the 'shouting into the void' feeling. Introduce the concept of Narrative Resonance as the antidote. Break down the 3-pillar framework..."></textarea>
+</div>
+<!-- CTA Section -->
+<div class="bg-surface-container-lowest p-stack-md rounded-xl shadow-sm warm-border border-l-[4px]" style="border-left-color: #C9C4BC;">
+<div class="flex justify-between items-center mb-stack-sm">
+<h3 class="font-headline-sm text-headline-sm text-secondary">Call to Action</h3>
+<span class="font-label-sm text-label-sm text-secondary">02:30 - 03:00</span>
+</div>
+<textarea class="w-full border-none focus:ring-0 p-0 text-body-md min-h-[80px] resize-none" placeholder="What should the viewer do next? Subscribe? Download? Comment?"></textarea>
+</div>
+</div>
+</section>
+<!-- Right Column: Assets & Metadata (40%) -->
+<aside class="col-span-12 lg:col-span-5 space-y-stack-lg">
+<!-- B-Roll Suggestions Card -->
+<div class="bg-neutral-100 p-stack-md rounded-xl border border-neutral-200">
+<div class="flex items-center gap-2 mb-stack-md">
+<span class="material-symbols-outlined text-primary">movie</span>
+<h3 class="font-headline-sm text-headline-sm">B-Roll Suggestions</h3>
+</div>
+<div class="space-y-stack-sm"><div class="space-y-2 py-2"><p class="font-body-sm text-on-surface-variant">1. Close-up: Typing on laptop</p><p class="font-body-sm text-on-surface-variant">2. Overhead: Sketching ideas</p></div><button class="w-full py-2 border-2 border-dashed border-neutral-300 rounded-lg text-secondary font-label-md hover:bg-neutral-200 transition-colors">+ Add B-Roll Marker</button></div>
+</div>
+<!-- SEO Metadata Card -->
+<div class="bg-surface-container-lowest p-stack-md rounded-xl shadow-sm border border-neutral-100">
+<div class="flex items-center gap-2 mb-stack-md">
+<span class="material-symbols-outlined text-tertiary">search</span>
+<h3 class="font-headline-sm text-headline-sm">SEO Optimizer</h3>
+</div>
+<div class="space-y-stack-md">
+<div>
+<label class="block font-label-sm text-label-sm text-secondary mb-1">RECOMMENDED TITLE</label>
+<p class="font-body-sm text-body-sm p-3 bg-neutral-50 rounded-lg border border-neutral-200">How to Master Focus: 5 Rules for Remote Creative Success</p>
+</div>
+<div>
+<label class="block font-label-sm text-label-sm text-secondary mb-1">DESCRIPTION SNIPPET</label>
+<p class="font-body-sm text-body-sm p-3 bg-neutral-50 rounded-lg border border-neutral-200">Stop scrolling and start creating. In this video, we dive deep into the specific systems that solo creators use to maintain high-quality output without burnout.</p>
+</div>
+<div>
+<label class="block font-label-sm text-label-sm text-secondary mb-1">TAGS</label>
+<div class="flex flex-wrap gap-2">
+<span class="px-2 py-1 bg-primary-light/20 text-primary-dark rounded font-label-sm text-[11px]">#productivity</span>
+<span class="px-2 py-1 bg-primary-light/20 text-primary-dark rounded font-label-sm text-[11px]">#creatives</span>
+<span class="px-2 py-1 bg-primary-light/20 text-primary-dark rounded font-label-sm text-[11px]">#remotework</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Target Date Picker -->
+<div class="bg-surface-container-lowest p-stack-md rounded-xl shadow-sm border border-neutral-100">
+<label class="block font-label-sm text-label-sm text-secondary mb-2">TARGET PUBLISH DATE</label>
+<div class="relative">
+<input class="w-full bg-neutral-50 border-neutral-200 rounded-lg px-4 py-2 focus:ring-primary focus:border-primary text-body-sm" type="date" value="2023-11-24"/>
+</div>
+</div>
+</aside>
+</main>
+<script>
+        // Micro-interaction for the "Generate" button to show loading state
+        const generateBtn = document.getElementById('generateBtn');
+        const skeletonLoader = document.getElementById('skeletonLoader');
+        const editorContent = document.getElementById('editorContent');
+
+        generateBtn.addEventListener('click', () => {
+            // Hide actual content
+            editorContent.classList.add('hidden');
+            // Show skeleton
+            skeletonLoader.classList.remove('hidden');
+            
+            // Revert after 2 seconds to simulate AI generation
+            setTimeout(() => {
+                skeletonLoader.classList.add('hidden');
+                editorContent.classList.remove('hidden');
+            }, 2000);
+        });
+
+        // Simple scale interaction for buttons
+        const allButtons = document.querySelectorAll('button');
+        allButtons.forEach(btn => {
+            btn.addEventListener('mousedown', () => btn.classList.add('scale-95'));
+            btn.addEventListener('mouseup', () => btn.classList.remove('scale-95'));
+            btn.addEventListener('mouseleave', () => btn.classList.remove('scale-95'));
+        });
+    </script>
+</body></html>

@@ -1,0 +1,336 @@
+<!DOCTYPE html><html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>DraftDesk — Content Planning for Solo Creators</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&amp;family=Source+Sans+3:wght@400;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "secondary-fixed": "#e8e1db",
+                      "on-error": "#ffffff",
+                      "primary-dark": "#C45A32",
+                      "secondary": "#625e59",
+                      "on-tertiary": "#ffffff",
+                      "on-primary": "#ffffff",
+                      "on-primary-fixed": "#390c00",
+                      "on-tertiary-container": "#003335",
+                      "surface-container-highest": "#f3ded8",
+                      "on-surface-variant": "#57423b",
+                      "on-secondary-fixed": "#1e1b17",
+                      "background": "#fff8f6",
+                      "primary-light": "#F4A98B",
+                      "tertiary-fixed-dim": "#5cd8dd",
+                      "inverse-on-surface": "#ffede8",
+                      "on-error-container": "#93000a",
+                      "amber": "#F5C563",
+                      "on-primary-fixed-variant": "#822803",
+                      "surface-container-low": "#fff1ed",
+                      "surface-container": "#fee9e3",
+                      "tertiary-container": "#00a5aa",
+                      "surface-bright": "#fff8f6",
+                      "error-container": "#ffdad6",
+                      "neutral-50": "#FAF8F5",
+                      "on-secondary-fixed-variant": "#4a4642",
+                      "neutral-600": "#5C5750",
+                      "inverse-primary": "#ffb59d",
+                      "neutral-200": "#E8E4DE",
+                      "surface-variant": "#f3ded8",
+                      "outline-variant": "#dec0b7",
+                      "surface-container-high": "#f9e4de",
+                      "primary-fixed-dim": "#ffb59d",
+                      "primary-fixed": "#ffdbd0",
+                      "tertiary-fixed": "#7bf5fa",
+                      "primary": "#a23f1a",
+                      "primary-container": "#e8734a",
+                      "outline": "#8a726a",
+                      "amber-light": "#FCE8B8",
+                      "secondary-container": "#e5ded8",
+                      "on-surface": "#241916",
+                      "surface-container-lowest": "#ffffff",
+                      "error": "#ba1a1a",
+                      "charcoal-light": "#4A4540",
+                      "inverse-surface": "#3a2e2a",
+                      "on-primary-container": "#581700",
+                      "tertiary": "#00696d",
+                      "surface-tint": "#a23f1a",
+                      "on-tertiary-fixed": "#002021",
+                      "surface": "#fff8f6",
+                      "on-background": "#241916",
+                      "on-secondary-container": "#66625d",
+                      "on-secondary": "#ffffff",
+                      "neutral-100": "#F3F0EB",
+                      "on-tertiary-fixed-variant": "#004f52",
+                      "neutral-300": "#C9C4BC",
+                      "secondary-fixed-dim": "#ccc5bf",
+                      "surface-dim": "#ead6d0"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "10px",
+                      "xl": "12px",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "gutter": "1.5rem",
+                      "stack-lg": "2rem",
+                      "margin-page": "2rem",
+                      "stack-md": "1rem",
+                      "stack-sm": "0.5rem"
+              },
+              "fontFamily": {
+                      "headline-lg": ["Outfit"],
+                      "body-lg": ["Source Sans 3"],
+                      "headline-md": ["Outfit"],
+                      "label-sm": ["Source Sans 3"],
+                      "body-md": ["Source Sans 3"],
+                      "label-md": ["Source Sans 3"],
+                      "body-sm": ["Source Sans 3"],
+                      "headline-xl": ["Outfit"],
+                      "headline-sm": ["Outfit"],
+                      "headline-lg-mobile": ["Outfit"]
+              },
+              "fontSize": {
+                      "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "label-sm": ["12px", {"lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "label-md": ["14px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "500"}],
+                      "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body {
+            background-color: #FAF8F5;
+            color: #241916;
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md selection:bg-primary-light selection:text-on-primary-container">
+<!-- TopNavBar -->
+<nav class="w-full top-0 sticky z-50 bg-background/90 backdrop-blur-md">
+<div class="flex justify-between items-center px-margin-page py-stack-md max-w-[1200px] mx-auto">
+<div class="flex items-center gap-8">
+<a class="font-headline-md text-headline-md font-bold text-primary" href="#">DraftDesk</a>
+<div class="hidden md:flex items-center gap-6">
+<a class="text-secondary hover:text-primary transition-colors font-body-md text-body-md" href="#features">Features</a>
+<a class="text-secondary hover:text-primary transition-colors font-body-md text-body-md" href="#pricing">Pricing</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<a class="hidden sm:block text-primary font-bold hover:opacity-80 transition-opacity font-body-md text-body-md" href="#">Log in</a>
+<button class="bg-primary hover:bg-primary-dark text-on-primary px-6 py-2.5 rounded-lg font-label-md text-label-md transition-all shadow-sm active:scale-95">
+                    Start creating — it's free
+                </button>
+</div>
+</div>
+</nav>
+<main class="max-w-[1200px] mx-auto px-margin-page">
+<!-- Hero Section -->
+<section class="py-16 md:py-24 flex flex-col md:flex-row items-center gap-12 overflow-hidden">
+<div class="flex-1 space-y-8 text-center md:text-left">
+<h1 class="font-headline-xl text-headline-xl leading-tight">From idea to upload, <span class="text-primary italic">faster.</span></h1>
+<p class="text-body-lg text-secondary max-w-xl mx-auto md:mx-0">
+                    The all-in-one workspace designed for solo creators to script, plan, and track content without the overhead of complex project tools.
+                </p>
+<div class="flex flex-col sm:flex-row items-center gap-4 justify-center md:justify-start">
+<button class="bg-primary text-on-primary px-8 py-4 rounded-xl font-headline-sm text-headline-sm hover:bg-primary-dark transition-all shadow-md active:scale-[0.98]">
+                        Start creating
+                    </button>
+<button class="text-primary hover:bg-primary-fixed/30 px-6 py-4 rounded-xl font-headline-sm text-headline-sm transition-all flex items-center gap-2 group">
+<span class="material-symbols-outlined">play_circle</span>
+                        See how it works <span class="transition-transform group-hover:translate-x-1">→</span>
+</button>
+</div>
+</div>
+<div class="flex-1 relative w-full">
+<div class="bg-neutral-200/50 p-3 md:p-4 rounded-2xl shadow-2xl border border-neutral-200 overflow-hidden">
+<img alt="DraftDesk Dashboard Preview" class="rounded-lg shadow-inner border border-neutral-100 w-full object-cover aspect-video" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXxF2n890XaHSyn1t8rYvSAh6gQqjOxNTFkJn7bh7OgslR4NvsetLiPNRGHck6Up-f_F9McpYTSoECl50_72dhBk32p2X9lijE8yqKK9ZW9biKWRt5XjUkWLXq4nqLK4SKWe-QPkBdYgBTmvA19XGnUJAAsysNGPpdln_rBYDbHeCvQ76IBPZi6cYHAZmt5R-I3IvVPknKPlEx1npTtifJ17uFssLy_RvcyvwJaPJ9PYhcI5jbhgRUIiDbhEJCedFOjHVRFIBVtLHC">
+</div>
+<!-- Floating Decorative Elements -->
+<div class="absolute -top-4 -right-4 bg-amber-light text-on-secondary-fixed p-3 rounded-lg shadow-lg animate-bounce hidden lg:block">
+<span class="material-symbols-outlined text-amber">auto_awesome</span>
+<span class="font-label-sm ml-1">AI Scripting Active</span>
+</div>
+</div>
+</section>
+<!-- Features Section -->
+<section class="py-20" id="features">
+<div class="text-center mb-16">
+<h2 class="font-headline-lg text-headline-lg mb-4">Focus on creation, not management.</h2>
+<p class="text-body-md text-secondary max-w-2xl mx-auto">Everything you need to run your channel or platform from a single, beautiful workspace.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- AI Script Generator -->
+<div class="bg-surface-container-lowest p-8 rounded-xl border border-neutral-200 shadow-sm hover:shadow-md transition-all group border-b-4 border-b-primary-light">
+<div class="w-16 h-16 bg-primary-fixed rounded-xl flex items-center justify-center mb-8 text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined !text-[44px]">auto_fix_high</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm mb-4">AI Script Generator</h3>
+<p class="text-body-md text-secondary leading-relaxed">
+                        Beat blank-page syndrome. Turn a 3-word idea into a full video outline or script draft in seconds using built-in creative prompts.
+                    </p>
+</div>
+<!-- Content Tracker -->
+<div class="bg-surface-container-lowest p-8 rounded-xl border border-neutral-200 shadow-sm hover:shadow-md transition-all group border-b-4 border-b-tertiary-container">
+<div class="w-16 h-16 bg-tertiary-fixed rounded-xl flex items-center justify-center mb-8 text-tertiary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined !text-[44px]">view_kanban</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm mb-4">Content Tracker</h3>
+<p class="text-body-md text-secondary leading-relaxed">
+                        Never lose track of a deadline. Manage your production pipeline with an intuitive board designed specifically for creators.
+                    </p>
+</div>
+<!-- Built for Solo Creators -->
+<div class="bg-surface-container-lowest p-8 rounded-xl border border-neutral-200 shadow-sm hover:shadow-md transition-all group border-b-4 border-b-secondary-fixed-dim">
+<div class="w-16 h-16 bg-secondary-fixed rounded-xl flex items-center justify-center mb-8 text-secondary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined !text-[44px]">person_celebrate</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm mb-4">Built for Solo Creators</h3>
+<p class="text-body-md text-secondary leading-relaxed">
+                        No team needed. We stripped away the bloat of corporate project management to give you a focused, distraction-free creative studio.
+                    </p>
+</div>
+</div>
+</section>
+<!-- How It Works Section -->
+<section class="py-20 bg-neutral-100 rounded-3xl px-8 md:px-16 my-10">
+<div class="flex flex-col md:flex-row gap-12 items-center">
+<div class="flex-1">
+<h2 class="font-headline-lg text-headline-lg mb-12">How it works</h2>
+<div class="space-y-12">
+<div class="flex gap-6">
+<div class="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold">1</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm mb-2">Capture the spark</h4>
+<p class="text-secondary">Quickly jot down content ideas on the go with our mobile-first intake form.</p>
+</div>
+</div>
+<div class="flex gap-6">
+<div class="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold">2</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm mb-2">Draft and Refine</h4>
+<p class="text-secondary">Use our integrated editor to script and organize your shots in one place.</p>
+</div>
+</div>
+<div class="flex gap-6">
+<div class="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold">3</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm mb-2">Execute and Ship</h4>
+<p class="text-secondary">Track the editing process and mark as "Uploaded" to see your stats grow.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="flex-1 grid grid-cols-2 gap-4">
+<div class="aspect-square bg-surface-container-highest rounded-2xl flex items-center justify-center group overflow-hidden">
+<img alt="Workflow close-up" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0Snzjd4YGtQGg-4qoSe1fiw0zcrtlcHfuuUdPnO3dnFLxCnVg2c0hBax0WAdlvf1ySG8AdKmcjDh3RqS19xd9dppU-iypv31WfuEPSgP6JbfAkcog-SAnyTs6dTXvS3FNoZODAHisdGGxA5Oq8tLqENuGDRnBuTxWSdiwXkkpYi_Q4G1Lob2OMHeSPInX2rGF0UsWtlwRX6LRRCy97eufX8sdma-_USiIk51G4hx_WxiqGGWphJqWiAPh14rz0YdQjCN53Az6BYp7">
+</div>
+<div class="aspect-square bg-surface-container-highest rounded-2xl flex items-center justify-center mt-12 group overflow-hidden">
+<img alt="Creative planning" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2Rf7HaKxzY0IRjm6vL876Te95rVnDc6VLhqC4uuV3GS66VlYTdcXuibdp9mqLMfekoh1b6OXrJh70AtXs6t2WRsSSjR8Xmtz5aijqsxd9DRp_rxDd6SJ7cOTSdmnTFGxu5IDfEcJVQjapgacNo5czhQbPFYWWsLhoD6_mBVezHdY2P4lMOoiSeYG4hWnEKyCC213IGO_dx9kbGVPGjFRwY2C0H711tYOXEA-Jx56llA9nIHu9N71qoXDxdb6nIM8sW06IkQHUdsr1">
+</div>
+</div>
+</div>
+</section>
+<!-- Pricing Section -->
+<section class="py-20" id="pricing">
+<div class="max-w-xl mx-auto bg-surface-container-lowest border-2 border-primary/20 rounded-[2rem] p-10 md:p-16 text-center shadow-xl relative overflow-hidden">
+<div class="absolute top-0 right-0 bg-primary text-on-primary px-8 py-2 rounded-bl-2xl font-label-sm uppercase tracking-widest">Limited Time</div>
+<h2 class="font-headline-lg text-headline-lg mb-2">Beta Access</h2>
+<div class="text-headline-xl text-primary font-bold my-6">Free <span class="text-headline-sm text-secondary font-normal">during beta</span></div>
+<ul class="text-left space-y-4 mb-10 max-w-xs mx-auto">
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary">check_circle</span>
+<span class="text-body-md">Unlimited projects &amp; scripts</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary">check_circle</span>
+<span class="text-body-md">50 AI scripts/month</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary">check_circle</span>
+<span class="text-body-md">Personal content calendar</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary">check_circle</span>
+<span class="text-body-md">Priority support</span>
+</li>
+</ul>
+<button class="w-full bg-primary text-on-primary py-5 rounded-2xl font-headline-sm text-headline-sm hover:bg-primary-dark transition-all shadow-lg active:scale-[0.98]">
+                    Start creating — it's free
+                </button>
+<p class="mt-6 text-body-sm text-secondary">No credit card required. Lock in your spot today.</p>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-neutral-100 mt-20 pt-20 pb-10 border-t border-neutral-200">
+<div class="max-w-[1200px] mx-auto px-margin-page">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-20">
+<div class="col-span-1 md:col-span-2">
+<a class="font-headline-md text-headline-md font-bold text-primary mb-6 block" href="#">DraftDesk</a>
+<p class="text-body-md text-secondary max-w-sm">
+                        Designed with love for the solo creators who make the internet a more interesting place. From first draft to final upload.
+                    </p>
+</div>
+<div>
+<h5 class="font-label-md text-label-md uppercase tracking-wider text-charcoal-light mb-6">Product</h5>
+<ul class="space-y-4 text-body-md text-secondary">
+<li><a class="hover:text-primary transition-colors" href="#">Features</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Pricing</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Beta Roadmap</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-label-md text-label-md uppercase tracking-wider text-charcoal-light mb-6">Community</h5>
+<ul class="space-y-4 text-body-md text-secondary">
+<li><a class="hover:text-primary transition-colors" href="#">X / Twitter</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Discord</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Support</a></li>
+</ul>
+</div>
+</div>
+<div class="flex flex-col md:flex-row justify-between items-center pt-10 border-t border-neutral-200 gap-6">
+<p class="text-body-sm text-secondary">© 2024 DraftDesk. All rights reserved.</p>
+<div class="flex gap-8">
+<a class="text-body-sm text-secondary hover:text-primary" href="#">Privacy Policy</a>
+<a class="text-body-sm text-secondary hover:text-primary" href="#">Terms of Service</a>
+</div>
+</div>
+</div>
+</footer>
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = { threshold: 0.1 };
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('opacity-100', 'translate-y-0');
+                        entry.target.classList.remove('opacity-0', 'translate-y-10');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('section').forEach(section => {
+                section.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-10');
+                observer.observe(section);
+            });
+        });
+    </script>
+</body></html>

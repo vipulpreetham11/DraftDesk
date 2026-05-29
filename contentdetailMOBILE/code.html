@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&amp;family=Source+Sans+3:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "neutral-600": "#5C5750",
+                        "on-background": "#241916",
+                        "neutral-100": "#F3F0EB",
+                        "tertiary-fixed-dim": "#5cd8dd",
+                        "background": "#fff8f6",
+                        "surface-variant": "#f3ded8",
+                        "secondary-fixed": "#e8e1db",
+                        "on-tertiary-container": "#003335",
+                        "secondary-container": "#e5ded8",
+                        "on-secondary": "#ffffff",
+                        "outline-variant": "#dec0b7",
+                        "surface-container-high": "#f9e4de",
+                        "on-secondary-container": "#66625d",
+                        "secondary-fixed-dim": "#ccc5bf",
+                        "on-tertiary-fixed": "#002021",
+                        "on-error": "#ffffff",
+                        "tertiary-container": "#00a5aa",
+                        "primary-fixed": "#ffdbd0",
+                        "primary-container": "#e8734a",
+                        "on-secondary-fixed": "#1e1b17",
+                        "on-primary-container": "#581700",
+                        "charcoal-light": "#4A4540",
+                        "surface": "#fff8f6",
+                        "primary": "#a23f1a",
+                        "on-tertiary-fixed-variant": "#004f52",
+                        "neutral-50": "#FAF8F5",
+                        "on-primary": "#ffffff",
+                        "amber": "#F5C563",
+                        "tertiary": "#00696d",
+                        "inverse-on-surface": "#ffede8",
+                        "surface-dim": "#ead6d0",
+                        "surface-bright": "#fff8f6",
+                        "surface-container-low": "#fff1ed",
+                        "on-surface": "#241916",
+                        "outline": "#8a726a",
+                        "secondary": "#625e59",
+                        "inverse-primary": "#ffb59d",
+                        "surface-container": "#fee9e3",
+                        "on-primary-fixed-variant": "#822803",
+                        "inverse-surface": "#3a2e2a",
+                        "error": "#ba1a1a",
+                        "neutral-300": "#C9C4BC",
+                        "neutral-200": "#E8E4DE",
+                        "amber-light": "#FCE8B8",
+                        "tertiary-fixed": "#7bf5fa",
+                        "on-secondary-fixed-variant": "#4a4642",
+                        "error-container": "#ffdad6",
+                        "primary-dark": "#C45A32",
+                        "on-error-container": "#93000a",
+                        "surface-tint": "#a23f1a",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-highest": "#f3ded8",
+                        "primary-light": "#F4A98B",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed": "#390c00",
+                        "on-surface-variant": "#57423b",
+                        "primary-fixed-dim": "#ffb59d"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-sm": "0.5rem",
+                        "stack-md": "1rem",
+                        "gutter": "1.5rem",
+                        "stack-lg": "2rem",
+                        "margin-page": "2rem"
+                    },
+                    "fontFamily": {
+                        "label-md": ["Source Sans 3"],
+                        "body-sm": ["Source Sans 3"],
+                        "body-lg": ["Source Sans 3"],
+                        "headline-sm": ["Outfit"],
+                        "headline-xl": ["Outfit"],
+                        "headline-lg-mobile": ["Outfit"],
+                        "headline-md": ["Outfit"],
+                        "headline-lg": ["Outfit"],
+                        "label-sm": ["Source Sans 3"],
+                        "body-md": ["Source Sans 3"]
+                    },
+                    "fontSize": {
+                        "label-md": ["14px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "500"}],
+                        "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "label-sm": ["12px", {"lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-neutral-50 min-h-screen text-on-surface font-body-md flex flex-col">
+<!-- TopAppBar -->
+<header class="sticky top-0 w-full z-50 bg-surface shadow-sm flex items-center justify-between px-gutter py-stack-sm">
+<button class="transition-colors duration-200 active:scale-95 text-primary hover:bg-surface-variant/50 p-2 rounded-full">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="font-headline-sm text-headline-sm text-on-surface">Content Detail</h1>
+<button class="transition-colors duration-200 active:scale-95 text-on-surface-variant hover:bg-surface-variant/50 p-2 rounded-full">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</header>
+<!-- Main Content Area -->
+<main class="flex-grow px-gutter pt-stack-md pb-24 space-y-stack-lg">
+<!-- Section 1: The Script Draft -->
+<section class="space-y-stack-sm">
+<h2 class="font-headline-md text-headline-md text-on-surface">The Script Draft</h2>
+<div class="bg-surface-container-lowest border border-neutral-200 rounded-xl p-stack-md shadow-sm">
+<div class="border-l-4 border-primary pl-4 py-1 mb-stack-md">
+<p class="font-label-md text-label-md text-primary mb-1">Hook</p>
+<p class="font-body-lg text-body-lg italic text-on-surface-variant">"Ever wondered why most solo creators burn out in six months? It's not lack of talent; it's lack of a system."</p>
+</div>
+<div class="relative" id="script-content">
+<p class="font-body-md text-body-md text-on-surface line-clamp-3">
+                        Today we're diving deep into the psychology of sustainable creativity. For years, I struggled with the boom-and-bust cycle of content production. I'd spend a week obsessed with one video, only to be too exhausted to film for the next month. That's when I realized the secret isn't working harder, it's building a 'Warm Studio' environment that supports your flow...
+                    </p>
+<button class="mt-stack-sm text-primary font-label-md text-label-md flex items-center hover:underline" onclick="toggleScript()">
+                        Read full script <span class="material-symbols-outlined text-[18px] ml-1">arrow_forward</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Section 2: Publishing Progress -->
+<section class="space-y-stack-sm">
+<h2 class="font-headline-md text-headline-md text-on-surface">Publishing Progress</h2>
+<div class="bg-surface-container-lowest border border-neutral-200 rounded-xl p-stack-md shadow-sm">
+<div class="flex justify-between items-end mb-stack-sm">
+<span class="font-label-md text-label-md text-on-surface-variant">20% Complete</span>
+<span class="font-label-sm text-label-sm text-secondary">1 of 5 tasks</span>
+</div>
+<div class="w-full bg-neutral-200 h-2 rounded-full mb-stack-lg overflow-hidden">
+<div class="bg-primary h-full rounded-full transition-all duration-500" style="width: 20%;"></div>
+</div>
+<ul class="space-y-3">
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-body-md text-body-md text-on-surface">Script done</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-neutral-300">radio_button_unchecked</span>
+<span class="font-body-md text-body-md text-neutral-600">B-roll recorded</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-neutral-300">radio_button_unchecked</span>
+<span class="font-body-md text-body-md text-neutral-600">Video edited</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-neutral-300">radio_button_unchecked</span>
+<span class="font-body-md text-body-md text-neutral-600">Thumbnail created</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-neutral-300">radio_button_unchecked</span>
+<span class="font-body-md text-body-md text-neutral-600">Published</span>
+</li>
+</ul>
+</div>
+</section>
+<!-- Section 3: Metadata & SEO -->
+<section class="space-y-stack-sm">
+<h2 class="font-headline-md text-headline-md text-on-surface">Metadata &amp; SEO</h2>
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-surface-container-lowest border border-neutral-200 rounded-xl p-stack-md shadow-sm flex flex-col items-center text-center">
+<span class="material-symbols-outlined text-primary mb-1">description</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Word Count</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">248</span>
+</div>
+<div class="bg-surface-container-lowest border border-neutral-200 rounded-xl p-stack-md shadow-sm flex flex-col items-center text-center">
+<span class="material-symbols-outlined text-primary mb-1">timer</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Reading Time</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">~1.5m</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest border border-neutral-200 rounded-xl p-stack-md shadow-sm mt-4">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-secondary text-[20px]">search</span>
+<span class="font-label-md text-label-md text-on-surface-variant">SEO Preview</span>
+</div>
+<p class="text-[#1a0dab] font-body-md text-[18px] leading-tight hover:underline mb-1">Sustainable Creator Workflow: Avoid Burnout | Warm Studio</p>
+<p class="text-[#006621] font-body-sm text-sm mb-1">warmstudio.app › blog › workflow</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">Learn the psychological secrets to maintaining a consistent content schedule without sacrificing your mental health...</p>
+</div>
+</section>
+<!-- Section 4: Thumbnail Asset -->
+<section class="space-y-stack-sm">
+<h2 class="font-headline-md text-headline-md text-on-surface">Thumbnail Asset</h2>
+<div class="relative group">
+<div class="w-full aspect-video rounded-xl bg-neutral-100 border-2 border-dashed border-neutral-200 flex flex-col items-center justify-center p-stack-md cursor-pointer transition-colors hover:bg-neutral-200/50">
+<img alt="Thumbnail placeholder" class="absolute inset-0 w-full h-full object-cover rounded-xl opacity-30 group-hover:opacity-40 transition-opacity" data-alt="A professional YouTube thumbnail draft featuring a clean minimalist office desk with a laptop and a warm cup of coffee. The lighting is soft and golden, coming from a nearby window, creating a serene and productive atmosphere. The color palette is dominated by warm neutrals and soft corals, matching a high-end studio aesthetic for creative professionals." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBoqaux-3qT_OY0a-oOY9VucY07gePu6dNQMRfte-YZNfvi-NzX9Hu4UbIJEmrSFDdI7KllfjeOZdPuLvzsBD677ecDzhSZRir7KLgOSD0zVpa1F8p0QvxF77yr4yJkF9aIMLwHcf-OAyC-IrO5V2_ItjTJLdA6R9GYBrjhfTBgFnmq9nsuWvCTEHw18C24ffSvKCGOlrOglFrmj8gXFzx9WNnfYWeQV6TOdKjOR8dp5_I_iqsUrHd3e-e_YEOA9LKgBXVHeipgfRXw"/>
+<div class="relative z-10 flex flex-col items-center">
+<span class="material-symbols-outlined text-primary text-4xl mb-2">cloud_upload</span>
+<p class="font-label-md text-label-md text-on-surface">Tap to upload thumbnail</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-1">PNG, JPG up to 10MB</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 rounded-t-xl bg-surface shadow-lg flex justify-around items-center h-16 px-gutter pb-safe">
+<button class="transition-all duration-200 active:scale-90 flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:text-primary">
+<span class="material-symbols-outlined" data-icon="calendar_month">calendar_month</span>
+<span class="font-label-sm text-label-sm">Planner</span>
+</button>
+<button class="transition-all duration-200 active:scale-90 flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1">
+<span class="material-symbols-outlined" data-icon="perm_media">perm_media</span>
+<span class="font-label-sm text-label-sm">Assets</span>
+</button>
+<button class="transition-all duration-200 active:scale-90 flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:text-primary">
+<span class="material-symbols-outlined" data-icon="lightbulb">lightbulb</span>
+<span class="font-label-sm text-label-sm">Ideas</span>
+</button>
+<button class="transition-all duration-200 active:scale-90 flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:text-primary">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-label-sm text-label-sm">Settings</span>
+</button>
+</nav>
+<script>
+        function toggleScript() {
+            const content = document.querySelector('#script-content p');
+            const btn = document.querySelector('#script-content button');
+            if (content.classList.contains('line-clamp-3')) {
+                content.classList.remove('line-clamp-3');
+                btn.innerHTML = 'Show less <span class="material-symbols-outlined text-[18px] ml-1">arrow_upward</span>';
+            } else {
+                content.classList.add('line-clamp-3');
+                btn.innerHTML = 'Read full script <span class="material-symbols-outlined text-[18px] ml-1">arrow_forward</span>';
+            }
+        }
+
+        // Add touch ripple effect to buttons
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('touchstart', function() {
+                this.classList.add('opacity-70');
+            });
+            button.addEventListener('touchend', function() {
+                this.classList.remove('opacity-70');
+            });
+        });
+    </script>
+</body></html>

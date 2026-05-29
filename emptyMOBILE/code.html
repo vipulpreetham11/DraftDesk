@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>DraftDesk - Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&amp;family=Source+Sans+3:wght@400;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&amp;family=Source+Sans+3:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-primary": "#ffb59d",
+                        "on-surface-variant": "#57423b",
+                        "surface-bright": "#fff8f6",
+                        "primary-fixed-dim": "#ffb59d",
+                        "on-tertiary-fixed-variant": "#004f52",
+                        "primary-container": "#e8734a",
+                        "surface-container-low": "#fff1ed",
+                        "on-surface": "#241916",
+                        "tertiary-fixed-dim": "#5cd8dd",
+                        "secondary-fixed": "#e8e1db",
+                        "neutral-300": "#C9C4BC",
+                        "on-secondary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "surface-container-highest": "#f3ded8",
+                        "on-primary-fixed-variant": "#822803",
+                        "on-tertiary-container": "#003335",
+                        "on-primary-container": "#581700",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed": "#7bf5fa",
+                        "background": "#fff8f6",
+                        "neutral-200": "#E8E4DE",
+                        "inverse-on-surface": "#ffede8",
+                        "primary-dark": "#C45A32",
+                        "primary-light": "#F4A98B",
+                        "neutral-100": "#F3F0EB",
+                        "surface": "#fff8f6",
+                        "surface-container": "#fee9e3",
+                        "surface-variant": "#f3ded8",
+                        "primary-fixed": "#ffdbd0",
+                        "primary": "#a23f1a",
+                        "on-primary-fixed": "#390c00",
+                        "surface-tint": "#a23f1a",
+                        "on-background": "#241916",
+                        "tertiary-container": "#00a5aa",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed": "#1e1b17",
+                        "secondary-fixed-dim": "#ccc5bf",
+                        "secondary": "#625e59",
+                        "charcoal-light": "#4A4540",
+                        "on-secondary-fixed-variant": "#4a4642",
+                        "error-container": "#ffdad6",
+                        "tertiary": "#00696d",
+                        "on-error": "#ffffff",
+                        "outline-variant": "#dec0b7",
+                        "on-tertiary-fixed": "#002021",
+                        "inverse-surface": "#3a2e2a",
+                        "neutral-50": "#FAF8F5",
+                        "on-primary": "#ffffff",
+                        "on-secondary-container": "#66625d",
+                        "neutral-600": "#5C5750",
+                        "amber": "#F5C563",
+                        "surface-container-lowest": "#ffffff",
+                        "outline": "#8a726a",
+                        "surface-container-high": "#f9e4de",
+                        "secondary-container": "#e5ded8",
+                        "surface-dim": "#ead6d0",
+                        "amber-light": "#FCE8B8"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-sm": "0.5rem",
+                        "stack-md": "1rem",
+                        "margin-page": "2rem",
+                        "gutter": "1.5rem",
+                        "stack-lg": "2rem"
+                    },
+                    "fontFamily": {
+                        "label-md": ["Source Sans 3"],
+                        "headline-xl": ["Outfit"],
+                        "headline-md": ["Outfit"],
+                        "label-sm": ["Source Sans 3"],
+                        "headline-lg-mobile": ["Outfit"],
+                        "body-sm": ["Source Sans 3"],
+                        "headline-lg": ["Outfit"],
+                        "body-lg": ["Source Sans 3"],
+                        "headline-sm": ["Outfit"],
+                        "body-md": ["Source Sans 3"]
+                    },
+                    "fontSize": {
+                        "label-md": ["14px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "label-sm": ["12px", {"lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "500"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #FAF8F5; /* neutral-50 Brand Base */
+        }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen text-on-surface">
+<!-- TopAppBar -->
+<header class="flex items-center justify-between px-margin-page h-16 w-full bg-surface dark:bg-surface fixed top-0 z-50">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary dark:text-inverse-primary" data-icon="edit_note" style="font-size: 28px;">edit_note</span>
+<h1 class="text-headline-md font-headline-md text-primary dark:text-inverse-primary tracking-tight">DraftDesk</h1>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined p-2 rounded-full text-on-surface-variant hover:bg-surface-container-low transition-colors active:scale-95 duration-100" data-icon="notifications">notifications</button>
+<div class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container font-label-md text-label-md">
+                JS
+            </div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow flex flex-col items-center justify-center px-margin-page pt-16 pb-24">
+<div class="max-w-md w-full flex flex-col items-center text-center space-y-stack-lg">
+<!-- Illustration Container -->
+<div class="relative group">
+<div class="absolute -inset-4 bg-primary-container/10 rounded-full blur-2xl group-hover:bg-primary-container/20 transition-all duration-700"></div>
+<img alt="" class="relative w-64 h-64 object-contain animate-float" src="https://lh3.googleusercontent.com/aida/ADBb0uju9136odU1e_d0pYKfn-i1sqlmrsMYr_h4AzZF6r8UZzY7m7Y0A0Ken-raYk2LVmBweLDB5yg_29xN-hJ0D0DvU-jYzKZj9nyshDePZ1FikQzSxEquMx0-0_2ATdoi85QLCkfBwrX7efOwjYx2NvCYsJ69XQPURC4HmlIw4KqA-y_jPRUlwz1ba1k8oT1fzm4sGwk5ANebL7ue1zv8Xx-MnUmVs7PawRKHnHB2jEcFsjCIp6aATSVtStNJ" style="animation: float 6s ease-in-out infinite;"/>
+</div>
+<!-- Empty State Typography -->
+<div class="space-y-stack-sm">
+<h2 class="text-headline-lg-mobile font-headline-lg-mobile text-on-surface">No scripts yet.</h2>
+<p class="text-body-lg font-body-lg text-on-surface-variant max-w-[280px] mx-auto">Let's create your first one.</p>
+</div>
+<!-- Action Button -->
+<button class="bg-primary-container hover:bg-primary-dark text-on-primary font-bold py-4 px-8 rounded-[10px] flex items-center gap-3 shadow-md hover:shadow-lg active:scale-95 transition-all duration-200">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+<span class="text-label-md font-label-md tracking-wider">Create your first script</span>
+</button>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center px-4 py-3 pb-safe bg-surface-container dark:bg-inverse-surface shadow-[0_-1px_3px_rgba(45,42,38,0.05)] rounded-t-xl">
+<!-- Planner (Active) -->
+<a class="flex flex-col items-center justify-center bg-primary-container dark:bg-primary text-on-primary-container dark:text-on-primary rounded-xl px-4 py-1 hover:bg-surface-container-high dark:hover:bg-neutral-600 transition-all active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_month">calendar_month</span>
+<span class="text-label-sm font-label-sm mt-1">Planner</span>
+</a>
+<!-- Assets -->
+<a class="flex flex-col items-center justify-center text-on-secondary-fixed-variant dark:text-secondary-fixed-dim px-4 py-1 hover:bg-surface-container-high dark:hover:bg-neutral-600 transition-all active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="folder_open">folder_open</span>
+<span class="text-label-sm font-label-sm mt-1">Assets</span>
+</a>
+<!-- Ideas -->
+<a class="flex flex-col items-center justify-center text-on-secondary-fixed-variant dark:text-secondary-fixed-dim px-4 py-1 hover:bg-surface-container-high dark:hover:bg-neutral-600 transition-all active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="lightbulb">lightbulb</span>
+<span class="text-label-sm font-label-sm mt-1">Ideas</span>
+</a>
+<!-- Settings -->
+<a class="flex flex-col items-center justify-center text-on-secondary-fixed-variant dark:text-secondary-fixed-dim px-4 py-1 hover:bg-surface-container-high dark:hover:bg-neutral-600 transition-all active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="text-label-sm font-label-sm mt-1">Settings</span>
+</a>
+</nav>
+<style>
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(2deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+        
+        /* Safe Area Padding for mobile browsers */
+        .pb-safe {
+            padding-bottom: calc(0.75rem + env(safe-area-inset-bottom));
+        }
+    </style>
+<script>
+        // Micro-interaction for buttons
+        document.querySelectorAll('button, a').forEach(elem => {
+            elem.addEventListener('touchstart', () => {
+                elem.style.transform = 'scale(0.96)';
+            });
+            elem.addEventListener('touchend', () => {
+                elem.style.transform = 'scale(1)';
+            });
+        });
+
+        // Mock Navigation State Management
+        const navItems = document.querySelectorAll('nav a');
+        navItems.forEach(item => {
+            item.addEventListener('click', (e) => {
+                e.preventDefault();
+                navItems.forEach(i => {
+                    i.className = "flex flex-col items-center justify-center text-on-secondary-fixed-variant dark:text-secondary-fixed-dim px-4 py-1 hover:bg-surface-container-high dark:hover:bg-neutral-600 transition-all active:scale-90 duration-200";
+                });
+                item.className = "flex flex-col items-center justify-center bg-primary-container dark:bg-primary text-on-primary-container dark:text-on-primary rounded-xl px-4 py-1 hover:bg-surface-container-high dark:hover:bg-neutral-600 transition-all active:scale-90 duration-200";
+            });
+        });
+    </script>
+</body></html>

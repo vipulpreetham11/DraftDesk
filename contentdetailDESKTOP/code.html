@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>DraftDesk - Content Detail</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&amp;family=Source+Sans+3:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-fixed": "#e8e1db",
+                    "on-error": "#ffffff",
+                    "primary-dark": "#C45A32",
+                    "secondary": "#625e59",
+                    "on-tertiary": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "on-primary-fixed": "#390c00",
+                    "on-tertiary-container": "#003335",
+                    "surface-container-highest": "#f3ded8",
+                    "on-surface-variant": "#57423b",
+                    "on-secondary-fixed": "#1e1b17",
+                    "background": "#fff8f6",
+                    "primary-light": "#F4A98B",
+                    "tertiary-fixed-dim": "#5cd8dd",
+                    "inverse-on-surface": "#ffede8",
+                    "on-error-container": "#93000a",
+                    "amber": "#F5C563",
+                    "on-primary-fixed-variant": "#822803",
+                    "surface-container-low": "#fff1ed",
+                    "surface-container": "#fee9e3",
+                    "tertiary-container": "#00a5aa",
+                    "surface-bright": "#fff8f6",
+                    "error-container": "#ffdad6",
+                    "neutral-50": "#FAF8F5",
+                    "on-secondary-fixed-variant": "#4a4642",
+                    "neutral-600": "#5C5750",
+                    "inverse-primary": "#ffb59d",
+                    "neutral-200": "#E8E4DE",
+                    "surface-variant": "#f3ded8",
+                    "outline-variant": "#dec0b7",
+                    "surface-container-high": "#f9e4de",
+                    "primary-fixed-dim": "#ffb59d",
+                    "primary-fixed": "#ffdbd0",
+                    "tertiary-fixed": "#7bf5fa",
+                    "primary": "#a23f1a",
+                    "primary-container": "#e8734a",
+                    "outline": "#8a726a",
+                    "amber-light": "#FCE8B8",
+                    "secondary-container": "#e5ded8",
+                    "on-surface": "#241916",
+                    "surface-container-lowest": "#ffffff",
+                    "error": "#ba1a1a",
+                    "charcoal-light": "#4A4540",
+                    "inverse-surface": "#3a2e2a",
+                    "on-primary-container": "#581700",
+                    "tertiary": "#00696d",
+                    "surface-tint": "#a23f1a",
+                    "on-tertiary-fixed": "#002021",
+                    "surface": "#fff8f6",
+                    "on-background": "#241916",
+                    "on-secondary-container": "#66625d",
+                    "on-secondary": "#ffffff",
+                    "neutral-100": "#F3F0EB",
+                    "on-tertiary-fixed-variant": "#004f52",
+                    "neutral-300": "#C9C4BC",
+                    "secondary-fixed-dim": "#ccc5bf",
+                    "surface-dim": "#ead6d0"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "1.5rem",
+                    "stack-lg": "2rem",
+                    "margin-page": "2rem",
+                    "stack-md": "1rem",
+                    "stack-sm": "0.5rem"
+            },
+            "fontFamily": {
+                    "headline-lg": ["Outfit"],
+                    "body-lg": ["Source Sans 3"],
+                    "headline-md": ["Outfit"],
+                    "label-sm": ["Source Sans 3"],
+                    "body-md": ["Source Sans 3"],
+                    "label-md": ["Source Sans 3"],
+                    "body-sm": ["Source Sans 3"],
+                    "headline-xl": ["Outfit"],
+                    "headline-sm": ["Outfit"],
+                    "headline-lg-mobile": ["Outfit"]
+            },
+            "fontSize": {
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "500"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #E8E4DE;
+            border-radius: 10px;
+        }
+        .script-content {
+            line-height: 1.7;
+        }
+    </style>
+</head>
+<body class="bg-neutral-50 text-on-background font-body-md text-body-md min-h-screen">
+<!-- TopAppBar Fragmented into Content Detail context -->
+<header class="w-full top-0 sticky z-50 bg-background/80 backdrop-blur-md">
+<div class="flex justify-between items-center px-margin-page py-stack-md max-w-7xl mx-auto">
+<div class="flex items-center gap-4">
+<a class="flex items-center gap-2 text-secondary hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<div class="h-6 w-px bg-neutral-200 mx-2"></div>
+<div class="flex flex-col md:flex-row md:items-center gap-1 md:gap-3">
+<h1 class="font-headline-sm text-headline-sm font-bold text-primary">Mastering High-Impact Hook Systems</h1>
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-label-sm font-label-sm bg-amber-light text-charcoal-light">Drafting</span>
+</div>
+</div>
+<div class="flex items-center gap-stack-sm md:gap-stack-md">
+<button class="hidden md:flex items-center gap-2 px-4 py-2 border border-neutral-300 rounded-[10px] text-secondary font-label-md text-label-md hover:bg-neutral-100 transition-all">
+<span class="material-symbols-outlined" data-icon="edit">edit</span>
+                    Edit
+                </button>
+<button class="flex items-center gap-2 px-4 py-2 text-error font-label-md text-label-md hover:bg-error-container/20 rounded-[10px] transition-all">
+<span class="material-symbols-outlined" data-icon="delete">delete</span>
+<span class="hidden md:inline">Delete</span>
+</button>
+</div>
+</div>
+</header>
+<main class="max-w-7xl mx-auto px-margin-page py-stack-lg flex flex-col md:flex-row gap-gutter">
+<!-- Left Column: 65% - Script Content -->
+<section class="w-full md:w-[65%] space-y-stack-lg">
+<!-- Main Content Card -->
+<div class="bg-neutral-100 rounded-xl p-stack-lg shadow-sm border border-neutral-200">
+<div class="prose prose-neutral max-w-none script-content">
+<!-- Hook Section -->
+<div class="mb-stack-lg">
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-widest mb-2 block">The Hook</span>
+<h2 class="font-headline-md text-headline-md text-on-surface border-l-4 border-primary pl-4 py-1 mb-4 italic">
+                            "Stop spending 10 hours on content that only reaches 10 people. Here is the framework I used to scale DraftDesk to 50k users."
+                        </h2>
+</div>
+<!-- Body Section -->
+<div class="space-y-4 text-on-surface-variant font-body-lg text-body-lg"><p class="line-clamp-3">Most solo creators focus on the wrong metric. They look at output quantity instead of narrative resonance. The secret isn't more content—it's more intention. We need to structure our scripts using the Anchor-Pivot-Action model. First, we anchor the audience in a shared pain point. Then, we pivot to a surprising solution. Finally, we provide a clear call to action.</p><button class="text-primary font-label-md hover:underline mt-2">Read full script →</button></div>
+<!-- CTA Section -->
+<div class="mt-stack-lg pt-stack-md border-t border-neutral-200">
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-widest mb-2 block">Call to Action</span>
+<p class="font-headline-sm text-headline-sm font-bold text-on-surface">
+                            Click the link in my bio to download the full Content Matrix for free. Start planning like a pro today.
+                        </p>
+</div>
+</div>
+</div>
+<!-- Notes Section -->
+<div class="bg-neutral-50 border border-neutral-200 rounded-xl overflow-hidden">
+<div class="px-stack-md py-stack-sm bg-neutral-200/50 flex justify-between items-center">
+<h3 class="font-label-md text-label-md text-secondary">Reviewer Notes</h3>
+<button class="text-primary text-label-sm font-label-sm">+ Add Note</button>
+</div>
+<div class="divide-y divide-neutral-200">
+<div class="p-stack-md flex gap-4">
+<span class="font-label-sm text-label-sm text-primary whitespace-nowrap">00:42</span>
+<div>
+<p class="text-body-sm text-on-surface">Maybe soften the tone here? Sounds a bit too aggressive for the "Warm Studio" brand vibe.</p>
+<span class="text-[10px] text-secondary mt-1 block">Pinned by Alex • 2h ago</span>
+</div>
+</div>
+<div class="p-stack-md flex gap-4">
+<span class="font-label-sm text-label-sm text-primary whitespace-nowrap">01:15</span>
+<div>
+<p class="text-body-sm text-on-surface">Need to verify the "50k users" stat before publishing.</p>
+<span class="text-[10px] text-secondary mt-1 block">Added by System • 4h ago</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Right Column: 35% - Sidebar Utilities -->
+<aside class="w-full md:w-[35%] space-y-gutter">
+<!-- Progress & Checklist Card -->
+<div class="bg-surface-container-lowest rounded-xl p-stack-md shadow-md border border-neutral-100">
+<div class="mb-stack-md">
+<div class="flex justify-between items-end mb-2">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Publishing Progress</h3>
+<span class="font-label-md text-label-md text-primary">20%</span>
+</div>
+<div class="w-full bg-neutral-200 h-3 rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-primary-light to-primary transition-all duration-700 ease-in-out" style="width: 20%"></div>
+</div>
+</div>
+<div class="space-y-3"><label class="flex items-center gap-3 cursor-pointer group"><div class="relative flex items-center justify-center"><input checked="" class="peer sr-only" type="checkbox"/><div class="w-5 h-5 border-2 border-primary rounded-md peer-checked:bg-primary transition-all"></div><span class="material-symbols-outlined text-white text-[14px] absolute opacity-0 peer-checked:opacity-100" data-icon="check">check</span></div><span class="text-body-sm text-on-surface-variant group-hover:text-on-surface transition-colors">Script done ✓</span></label><label class="flex items-center gap-3 cursor-pointer group"><div class="relative flex items-center justify-center"><input class="peer sr-only" type="checkbox"/><div class="w-5 h-5 border-2 border-neutral-300 rounded-md peer-checked:bg-primary transition-all"></div><span class="material-symbols-outlined text-white text-[14px] absolute opacity-0 peer-checked:opacity-100" data-icon="check">check</span></div><span class="text-body-sm text-on-surface-variant group-hover:text-on-surface transition-colors">B-roll recorded</span></label><label class="flex items-center gap-3 cursor-pointer group"><div class="relative flex items-center justify-center"><input class="peer sr-only" type="checkbox"/><div class="w-5 h-5 border-2 border-neutral-300 rounded-md peer-checked:bg-primary transition-all"></div><span class="material-symbols-outlined text-white text-[14px] absolute opacity-0 peer-checked:opacity-100" data-icon="check">check</span></div><span class="text-body-sm text-on-surface-variant group-hover:text-on-surface transition-colors">Video edited</span></label><label class="flex items-center gap-3 cursor-pointer group"><div class="relative flex items-center justify-center"><input class="peer sr-only" type="checkbox"/><div class="w-5 h-5 border-2 border-neutral-300 rounded-md peer-checked:bg-primary transition-all"></div><span class="material-symbols-outlined text-white text-[14px] absolute opacity-0 peer-checked:opacity-100" data-icon="check">check</span></div><span class="text-body-sm text-on-surface-variant group-hover:text-on-surface transition-colors">Thumbnail created</span></label><label class="flex items-center gap-3 cursor-pointer group"><div class="relative flex items-center justify-center"><input class="peer sr-only" type="checkbox"/><div class="w-5 h-5 border-2 border-neutral-300 rounded-md peer-checked:bg-primary transition-all"></div><span class="material-symbols-outlined text-white text-[14px] absolute opacity-0 peer-checked:opacity-100" data-icon="check">check</span></div><span class="text-body-sm text-on-surface-variant group-hover:text-on-surface transition-colors">Published</span></label></div>
+</div>
+<!-- Metadata Card -->
+<div class="bg-neutral-100 rounded-xl p-stack-md border border-neutral-200">
+<h4 class="font-label-md text-label-md text-secondary uppercase tracking-wider mb-stack-md">Metadata</h4>
+<div class="space-y-4">
+<div class="flex justify-between items-center">
+<span class="text-body-sm text-on-secondary-container">Word Count</span>
+<span class="font-label-md text-label-md text-on-surface">248 words</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-body-sm text-on-secondary-container">Reading Time</span>
+<span class="font-label-md text-label-md text-on-surface">~ 1.5 mins</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-body-sm text-on-secondary-container">Category</span>
+<span class="px-2 py-1 bg-secondary-fixed rounded text-label-sm font-label-sm text-on-secondary-fixed">Productivity</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-body-sm text-on-secondary-container">Keywords</span>
+<div class="flex gap-1">
+<span class="text-label-sm text-primary">#scaling</span>
+<span class="text-label-sm text-primary">#content</span>
+</div>
+</div>
+</div>
+</div>
+<!-- SEO Preview Card -->
+<div class="bg-neutral-100 rounded-xl p-stack-md border border-neutral-200">
+<div class="flex justify-between items-center mb-stack-md">
+<h4 class="font-label-md text-label-md text-secondary uppercase tracking-wider">SEO Preview</h4>
+<span class="material-symbols-outlined text-on-tertiary-fixed-variant" data-icon="visibility">visibility</span>
+</div>
+<div class="bg-white rounded-lg p-3 border border-neutral-200 shadow-sm overflow-hidden">
+<span class="text-body-sm text-[#1a0dab] font-semibold truncate block">Mastering High-Impact Hook Systems | DraftDesk Planning</span>
+<span class="text-body-sm text-[#006621] truncate block text-[12px]">draftdesk.com › blog › content-planning</span>
+<p class="text-[12px] text-secondary mt-1 line-clamp-2">Learn the Anchor-Pivot-Action model to scale your content reach and engage more effectively with your audience as a solo creator.</p>
+</div>
+<div class="mt-4 p-stack-sm bg-tertiary-fixed/10 border border-tertiary-fixed rounded-lg">
+<p class="text-body-sm text-on-tertiary-fixed-variant flex items-start gap-2">
+<span class="material-symbols-outlined text-[18px]" data-icon="info">info</span>
+                        Title is within optimal length (58/60 chars).
+                    </p>
+</div>
+</div>
+<!-- Visual Asset Card (Bonus for High-End feel) -->
+<div class="bg-neutral-100 rounded-xl p-stack-md border border-dashed border-neutral-300 flex flex-col items-center justify-center gap-stack-sm min-h-[160px]"><span class="font-label-md text-label-md text-secondary uppercase tracking-wider mb-2">Thumbnail Asset</span><span class="material-symbols-outlined text-neutral-300 text-4xl mb-2">image</span><button class="px-4 py-2 bg-white border border-neutral-300 rounded-lg text-body-sm font-semibold text-on-surface hover:bg-neutral-200 transition-colors">Upload Image</button></div>
+</aside>
+</main>
+<!-- Contextual FAB - Suppression Logic: Hidden on Detail Screens per instructions -->
+<script>
+        // Micro-interactions
+        document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                const checkedCount = document.querySelectorAll('input[type="checkbox"]:checked').length;
+                const totalCount = document.querySelectorAll('input[type="checkbox"]').length;
+                const percent = Math.round((checkedCount / totalCount) * 100);
+                
+                const progressBar = document.querySelector('.bg-gradient-to-r');
+                const progressText = document.querySelector('.text-primary.font-label-md');
+                
+                if(progressBar && progressText) {
+                    progressBar.style.width = percent + '%';
+                    progressText.innerText = percent + '%';
+                }
+            });
+        });
+
+        // Simple scroll reveal for the sidebar on mobile
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 20) {
+                header.classList.add('shadow-md');
+            } else {
+                header.classList.remove('shadow-md');
+            }
+        });
+    </script>
+</body></html>

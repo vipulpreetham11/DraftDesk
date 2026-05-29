@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>DraftDesk Dashboard</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&amp;family=Source+Sans+3:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-surface-variant": "#57423b",
+                    "surface-container-lowest": "#ffffff",
+                    "on-background": "#241916",
+                    "error": "#ba1a1a",
+                    "inverse-primary": "#ffb59d",
+                    "tertiary-fixed-dim": "#5cd8dd",
+                    "tertiary": "#00696d",
+                    "error-container": "#ffdad6",
+                    "charcoal-light": "#4A4540",
+                    "on-secondary-fixed": "#1e1b17",
+                    "neutral-600": "#5C5750",
+                    "on-primary-fixed": "#390c00",
+                    "neutral-100": "#F3F0EB",
+                    "on-tertiary-fixed-variant": "#004f52",
+                    "outline": "#8a726a",
+                    "secondary": "#625e59",
+                    "secondary-container": "#e5ded8",
+                    "tertiary-fixed": "#7bf5fa",
+                    "neutral-300": "#C9C4BC",
+                    "surface-container": "#fee9e3",
+                    "on-surface": "#241916",
+                    "surface-container-high": "#f9e4de",
+                    "surface": "#fff8f6",
+                    "surface-container-highest": "#f3ded8",
+                    "primary-fixed": "#ffdbd0",
+                    "primary-dark": "#C45A32",
+                    "primary": "#a23f1a",
+                    "secondary-fixed": "#e8e1db",
+                    "secondary-fixed-dim": "#ccc5bf",
+                    "on-tertiary-fixed": "#002021",
+                    "neutral-200": "#E8E4DE",
+                    "background": "#fff8f6",
+                    "inverse-surface": "#3a2e2a",
+                    "surface-dim": "#ead6d0",
+                    "surface-tint": "#a23f1a",
+                    "on-tertiary-container": "#003335",
+                    "on-secondary-container": "#66625d",
+                    "on-error": "#ffffff",
+                    "primary-light": "#F4A98B",
+                    "primary-fixed-dim": "#ffb59d",
+                    "primary-container": "#e8734a",
+                    "on-primary-fixed-variant": "#822803",
+                    "inverse-on-surface": "#ffede8",
+                    "amber": "#F5C563",
+                    "neutral-50": "#FAF8F5",
+                    "on-primary": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "tertiary-container": "#00a5aa",
+                    "outline-variant": "#dec0b7",
+                    "on-primary-container": "#581700",
+                    "surface-bright": "#fff8f6",
+                    "on-secondary-fixed-variant": "#4a4642",
+                    "on-error-container": "#93000a",
+                    "surface-variant": "#f3ded8",
+                    "surface-container-low": "#fff1ed"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-page": "2rem",
+                    "gutter": "1.5rem",
+                    "stack-sm": "0.5rem",
+                    "stack-lg": "2rem",
+                    "stack-md": "1rem"
+            },
+            "fontFamily": {
+                    "headline-xl": ["Outfit"],
+                    "headline-lg-mobile": ["Outfit"],
+                    "label-sm": ["Source Sans 3"],
+                    "headline-lg": ["Outfit"],
+                    "label-md": ["Source Sans 3"],
+                    "headline-md": ["Outfit"],
+                    "headline-sm": ["Outfit"],
+                    "body-lg": ["Source Sans 3"],
+                    "body-sm": ["Source Sans 3"],
+                    "body-md": ["Source Sans 3"]
+            },
+            "fontSize": {
+                    "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "label-sm-mobile": ["11px", {"lineHeight": "13px", "letterSpacing": "0.03em", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "label-md": ["14px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "500"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        body {
+            background-color: #FAF8F5;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-md text-on-background min-h-screen pb-24">
+<!-- TopAppBar -->
+<header class="docked full-width top-0 z-40 bg-surface border-b border-neutral-200 shadow-sm flex justify-between items-center w-full px-4 h-16">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary-container">
+<img alt="Creator Profile" class="w-full h-full object-cover" data-alt="A close-up portrait of a cheerful, creative professional man in his early 30s with short hair, wearing a stylish warm-toned sweater. He is in a brightly lit, modern studio space with soft-focus background of books and greenery. The lighting is soft and natural, emphasizing a friendly and welcoming personality that aligns with the warm studio aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxEytEGtlYPLoGmMQgFo1pJQpojrnF6ge830jGGsLuAIzRWnP-KqauBVSgGKOP6N32fR8KCyHVvvyGdqP9mx8RNIpiSWvhHm1CXtRP2SvECQ8l1UHfrFtcYWSbpK2fH-SQTFbAYfopOP1L2t2yipElOhAJz4s1kudtE8B_lB4rIQWJQrX_6izXiLOwGj1rm0ArPzbJBspm0D-YNx2ugglCxbtKqAv8TderQecpVorME6zwGZX6rxaVEkAA4W_4JxUdNMIQceU0udSu"/>
+</div>
+<h1 class="font-headline-md text-headline-md font-bold text-primary">DraftDesk</h1>
+</div>
+<button class="w-10 h-10 flex items-center justify-center hover:bg-neutral-100 rounded-full transition-colors active:opacity-80">
+<span class="material-symbols-outlined text-primary">notifications</span>
+</button>
+</header>
+<main class="px-4 pt-6 space-y-8">
+<!-- Stats Section -->
+<section class="grid grid-cols-2 gap-4">
+<!-- Total Projects -->
+<div class="bg-surface-container-lowest p-4 rounded-xl shadow-sm border border-neutral-100">
+<p class="font-label-sm text-on-surface-variant mb-1">Total Projects</p>
+<div class="flex items-end justify-between">
+<span class="font-headline-md text-headline-md text-on-surface">12</span>
+<span class="font-label-sm text-primary mb-1">+2 wk</span>
+</div>
+</div>
+<!-- This Month -->
+<div class="bg-surface-container-lowest p-4 rounded-xl shadow-sm border border-neutral-100">
+<p class="font-label-sm text-on-surface-variant mb-1">This Month</p>
+<div class="flex items-end justify-between">
+<span class="font-headline-md text-headline-md text-on-surface">3</span>
+<span class="material-symbols-outlined text-tertiary mb-1" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<p class="text-[10px] text-tertiary font-label-sm mt-1 uppercase tracking-wider">On track</p>
+</div>
+<!-- In Progress -->
+<div class="col-span-2 bg-surface-container-lowest p-4 rounded-xl shadow-sm border border-neutral-100 space-y-3">
+<div class="flex justify-between items-center">
+<div>
+<p class="font-label-sm text-on-surface-variant">In Progress</p>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">5 <span class="text-on-surface-variant text-body-sm font-normal">of 12</span></h3>
+</div>
+<span class="material-symbols-outlined text-primary-container text-3xl">pending_actions</span>
+</div>
+<div class="w-full bg-neutral-200 h-2 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[42%] rounded-full"></div>
+</div>
+</div>
+<!-- Published -->
+<div class="col-span-2 bg-primary-container/10 p-4 rounded-xl border border-primary-container/20 flex items-center justify-between">
+<div>
+<p class="font-label-sm text-primary-dark">Published Projects</p>
+<p class="font-headline-md text-headline-md text-primary">7</p>
+</div>
+<div class="text-right">
+<span class="bg-primary text-white text-[10px] px-2 py-1 rounded-full font-label-sm">HIGH ENGAGEMENT</span>
+</div>
+</div>
+</section>
+<!-- Your Content Header & Filters -->
+<section class="space-y-4">
+<div class="flex justify-between items-end">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">Your content</h2>
+<button class="text-primary font-label-md flex items-center gap-1">
+                    See all <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+<div class="flex gap-2 overflow-x-auto hide-scrollbar -mx-4 px-4">
+<button class="px-5 py-2 bg-primary text-on-primary rounded-full font-label-md transition-all active:scale-95 whitespace-nowrap">All</button>
+<button class="px-5 py-2 bg-surface-container-lowest border border-neutral-200 text-on-surface-variant rounded-full font-label-md whitespace-nowrap">Idea</button>
+<button class="px-5 py-2 bg-surface-container-lowest border border-neutral-200 text-on-surface-variant rounded-full font-label-md whitespace-nowrap">Scripted</button>
+<button class="px-5 py-2 bg-surface-container-lowest border border-neutral-200 text-on-surface-variant rounded-full font-label-md whitespace-nowrap">Recorded</button>
+<button class="px-5 py-2 bg-surface-container-lowest border border-neutral-200 text-on-surface-variant rounded-full font-label-md whitespace-nowrap">Published</button>
+</div>
+</section>
+<!-- Project Cards List -->
+<section class="space-y-4">
+<!-- Card 1 -->
+<article class="bg-surface-container-lowest p-5 rounded-xl shadow-sm border border-neutral-100 flex flex-col gap-3 relative overflow-hidden">
+<div class="flex justify-between items-start">
+<span class="bg-amber-light text-charcoal-light px-3 py-1 rounded-lg text-[10px] font-label-sm uppercase tracking-wide">Scripted</span>
+<div class="flex gap-1">
+<div class="w-1.5 h-1.5 rounded-full bg-primary"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-primary"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-neutral-200"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-neutral-200"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-neutral-200"></div>
+</div>
+</div>
+<div class="space-y-1">
+<h3 class="font-headline-sm text-headline-sm text-on-surface leading-tight">The Future of Solo Creation</h3>
+<p class="text-body-sm text-on-surface-variant line-clamp-2">Exploring how AI tools are democratizing the creative industry for independent builders and designers...</p>
+</div>
+<div class="pt-2 flex items-center justify-between border-t border-neutral-100 mt-2">
+<div class="flex gap-3 text-neutral-600">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">calendar_today</span>
+<span class="text-[11px] font-label-sm">Oct 24</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">movie</span>
+<span class="text-[11px] font-label-sm">YouTube</span>
+</div>
+</div>
+<button class="text-primary font-label-md flex items-center gap-1 active:scale-95 transition-transform">
+                        Edit script <span class="material-symbols-outlined text-sm">edit</span>
+</button>
+</div>
+</article>
+<!-- Card 2 -->
+<article class="bg-surface-container-lowest p-5 rounded-xl shadow-sm border border-neutral-100 flex flex-col gap-3">
+<div class="flex justify-between items-start">
+<span class="bg-primary-fixed text-on-primary-fixed-variant px-3 py-1 rounded-lg text-[10px] font-label-sm uppercase tracking-wide">Recorded</span>
+<div class="flex gap-1">
+<div class="w-1.5 h-1.5 rounded-full bg-primary"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-primary"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-primary"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-neutral-200"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-neutral-200"></div>
+</div>
+</div>
+<div class="space-y-1">
+<h3 class="font-headline-sm text-headline-sm text-on-surface leading-tight">Desk Setup for Focus</h3>
+<p class="text-body-sm text-on-surface-variant line-clamp-2">A walkthrough of my minimalist workspace and the essential tools that keep me productive every morning.</p>
+</div>
+<div class="pt-2 flex items-center justify-between border-t border-neutral-100 mt-2">
+<div class="flex gap-3 text-neutral-600">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">schedule</span>
+<span class="text-[11px] font-label-sm">08:42</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">phone_iphone</span>
+<span class="text-[11px] font-label-sm">Reels</span>
+</div>
+</div>
+<button class="text-primary font-label-md flex items-center gap-1 active:scale-95 transition-transform">
+                        View clips <span class="material-symbols-outlined text-sm">play_circle</span>
+</button>
+</div>
+</article>
+<!-- Card 3 -->
+<article class="bg-surface-container-lowest p-5 rounded-xl shadow-sm border border-neutral-100 flex flex-col gap-3">
+<div class="flex justify-between items-start">
+<span class="bg-tertiary-fixed text-on-tertiary-fixed-variant px-3 py-1 rounded-lg text-[10px] font-label-sm uppercase tracking-wide">Published</span>
+<div class="flex gap-1">
+<div class="w-1.5 h-1.5 rounded-full bg-primary"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-primary"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-primary"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-primary"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-primary"></div>
+</div>
+</div>
+<div class="space-y-1">
+<h3 class="font-headline-sm text-headline-sm text-on-surface leading-tight">Weekly Creator Newsletter #42</h3>
+<p class="text-body-sm text-on-surface-variant line-clamp-2">Sharing the latest findings on audience growth and the power of consistent micro-content...</p>
+</div>
+<div class="pt-2 flex items-center justify-between border-t border-neutral-100 mt-2">
+<div class="flex gap-3 text-neutral-600">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">trending_up</span>
+<span class="text-[11px] font-label-sm">1.2k views</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">mail</span>
+<span class="text-[11px] font-label-sm">Newsletter</span>
+</div>
+</div>
+<button class="text-primary font-label-md flex items-center gap-1 active:scale-95 transition-transform">
+                        View stats <span class="material-symbols-outlined text-sm">analytics</span>
+</button>
+</div>
+</article>
+<!-- Card 4 (Idea) -->
+<article class="bg-neutral-100 p-5 rounded-xl border border-dashed border-neutral-300 flex flex-col gap-3 opacity-80">
+<div class="flex justify-between items-start">
+<span class="bg-neutral-200 text-neutral-600 px-3 py-1 rounded-lg text-[10px] font-label-sm uppercase tracking-wide">Idea</span>
+<div class="flex gap-1">
+<div class="w-1.5 h-1.5 rounded-full bg-primary"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-neutral-200"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-neutral-200"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-neutral-200"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-neutral-200"></div>
+</div>
+</div>
+<div class="space-y-1">
+<h3 class="font-headline-sm text-headline-sm text-neutral-600 leading-tight">Building a Second Brain</h3>
+<p class="text-body-sm text-on-surface-variant line-clamp-2">Initial notes on how to organize digital assets for high-speed creative workflows.</p>
+</div>
+<div class="pt-2 flex items-center justify-between border-t border-neutral-200/50 mt-2">
+<div class="flex gap-3 text-neutral-400">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">lightbulb</span>
+<span class="text-[11px] font-label-sm">Draft</span>
+</div>
+</div>
+<button class="text-primary font-label-md flex items-center gap-1 active:scale-95 transition-transform">
+                        Draft now <span class="material-symbols-outlined text-sm">add_circle</span>
+</button>
+</div>
+</article>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 py-3 pb-6 bg-surface-container shadow-[0_-2px_10px_rgba(45,42,38,0.05)] z-50 rounded-t-xl">
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-xl px-4 py-1 active:scale-90 duration-150 ease-in-out" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">calendar_today</span>
+<span class="font-label-sm text-label-sm-mobile mt-1">Planner</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-neutral-200 transition-all active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined">folder_open</span>
+<span class="font-label-sm text-label-sm-mobile mt-1">Assets</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-neutral-200 transition-all active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined">lightbulb</span>
+<span class="font-label-sm text-label-sm-mobile mt-1">Ideas</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-neutral-200 transition-all active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-sm text-label-sm-mobile mt-1">Settings</span>
+</a>
+</nav>
+<!-- Floating Action Button (FAB) - Suppression logic: Primary purpose home/dashboard = Render -->
+<button class="fixed bottom-24 right-6 w-14 h-14 bg-primary text-white rounded-2xl shadow-lg flex items-center justify-center active:scale-95 transition-all z-40">
+<span class="material-symbols-outlined text-3xl">add</span>
+</button>
+<script>
+        // Micro-interactions for chips
+        const filterButtons = document.querySelectorAll('button.rounded-full');
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterButtons.forEach(b => {
+                    b.classList.remove('bg-primary', 'text-on-primary');
+                    b.classList.add('bg-surface-container-lowest', 'border', 'border-neutral-200', 'text-on-surface-variant');
+                });
+                btn.classList.add('bg-primary', 'text-on-primary');
+                btn.classList.remove('bg-surface-container-lowest', 'border', 'border-neutral-200', 'text-on-surface-variant');
+            });
+        });
+
+        // Subtle parallax or scroll effect for cards
+        window.addEventListener('scroll', () => {
+            const cards = document.querySelectorAll('article');
+            cards.forEach(card => {
+                const rect = card.getBoundingClientRect();
+                if (rect.top < window.innerHeight && rect.bottom > 0) {
+                    card.style.transform = 'translateY(0)';
+                    card.style.opacity = '1';
+                }
+            });
+        });
+    </script>
+</body></html>
