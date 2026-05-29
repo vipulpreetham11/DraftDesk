@@ -23,11 +23,11 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Get initial user
+      // Get initial user
     insforge.auth.getCurrentUser()
       .then((res) => {
-        // Handle both possible response formats { data: { user } } or { user }
-        const currentUser = res?.data?.user || res?.user || null;
+        // Handle both possible response formats
+        const currentUser = res?.data?.user || (res as any)?.user || null;
         setUser(currentUser);
         setLoading(false);
       })
@@ -58,7 +58,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         if (!profile) {
           const { error: insertError } = await insforge.database.from('profiles').insert([{
             id: user.id,
-            name: user.user_metadata?.name || user.email?.split('@')[0] || 'Creator',
+            name: (user as any)?.profile?.name || (user as any)?.metadata?.name || user.email?.split('@')[0] || 'Creator',
             niche: 'tech_ai',
             style_notes: '',
           }]);

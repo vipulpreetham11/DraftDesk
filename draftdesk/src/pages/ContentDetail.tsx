@@ -171,7 +171,7 @@ export default function ContentDetail() {
       // Upload to storage
       const { error: uploadError } = await insforge.storage
         .from('Thumbnail')
-        .upload(filePath, file, { upsert: true });
+        .upload(filePath, file);
 
       if (uploadError) {
         console.error("Storage upload error details:", uploadError);

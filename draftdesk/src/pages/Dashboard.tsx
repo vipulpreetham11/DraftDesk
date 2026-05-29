@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { PlusCircle, TrendingUp, CheckCircle, ArrowRight, LayoutDashboard, Loader2 } from 'lucide-react';
+import { PlusCircle, CheckCircle, ArrowRight, LayoutDashboard, Loader2 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import ProjectCard from '../components/ProjectCard';
 import type { ProjectCardProps, ProjectStatus } from '../components/ProjectCard';

@@ -9,7 +9,7 @@ const DashboardLayout: React.FC = () => {
   const { user } = useAuth();
   const isEditorRoute = location.pathname === '/new' || location.pathname.startsWith('/edit');
 
-  const displayName = user?.user_metadata?.name || user?.email?.split('@')[0] || 'Creator';
+  const displayName = (user as any)?.profile?.name || (user as any)?.metadata?.name || user?.email?.split('@')[0] || 'Creator';
   const initial = displayName.charAt(0).toUpperCase();
 
   return (

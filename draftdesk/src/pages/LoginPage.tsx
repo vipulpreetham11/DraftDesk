@@ -65,7 +65,7 @@ const LoginPage: React.FC = () => {
 
   const handleResend = async () => {
     try {
-      await insforge.auth.sendVerificationEmail({ email });
+      await insforge.auth.resendVerificationEmail({ email });
       setErrors({ verify: 'Code resent successfully!' });
     } catch (err: any) {
       setErrors({ verify: err.message || 'Failed to resend code' });
@@ -174,7 +174,7 @@ const LoginPage: React.FC = () => {
                   {otp.map((digit, index) => (
                     <input
                       key={index}
-                      ref={(el) => (otpRefs.current[index] = el)}
+                      ref={(el) => { otpRefs.current[index] = el; }}
                       type="text"
                       maxLength={6}
                       value={digit}
