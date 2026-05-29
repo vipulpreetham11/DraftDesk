@@ -1,13 +1,18 @@
 import React from 'react';
 import { Outlet, Link, useLocation, useNavigate } from 'react-router-dom';
-import { LayoutDashboard, Settings, Plus, Calendar, FolderOpen, Lightbulb, Bell } from 'lucide-react';
+import { LayoutDashboard, Settings, Plus, Calendar, FolderOpen, Lightbulb, Bell, LogOut } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
 
 const DashboardLayout: React.FC = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const { user } = useAuth();
+  const { user, signOut } = useAuth();
   const isEditorRoute = location.pathname === '/new' || location.pathname.startsWith('/edit');
+
+  const handleLogout = async () => {
+    await signOut();
+    navigate('/login', { replace: true });
+  };
 
   const displayName = (user as any)?.profile?.name || (user as any)?.metadata?.name || user?.email?.split('@')[0] || 'Creator';
   const initial = displayName.charAt(0).toUpperCase();
@@ -62,6 +67,13 @@ const DashboardLayout: React.FC = () => {
             <Settings className="w-5 h-5" />
             Settings
           </div>
+          <button 
+            onClick={handleLogout}
+            className="flex items-center gap-3 px-4 py-3 rounded-lg transition-all font-body text-sm font-bold text-warm-700 hover:bg-warm-200/50 hover:text-red-500 w-full text-left mt-auto"
+          >
+            <LogOut className="w-5 h-5" />
+            Log Out
+          </button>
         </nav>
 
         {/* User Profile (Desktop Bottom) */}
@@ -101,6 +113,10 @@ const DashboardLayout: React.FC = () => {
           <Settings className="w-6 h-6 mb-1" />
           <span className="font-body text-[11px] font-semibold">Settings</span>
         </div>
+        <button onClick={handleLogout} className="flex flex-col items-center justify-center text-red-400 px-4 py-2 active:scale-95 transition-all">
+          <LogOut className="w-6 h-6 mb-1" />
+          <span className="font-body text-[11px] font-bold">Logout</span>
+        </button>
       </nav>
       )}
 
