@@ -9,6 +9,6 @@ if (!insforgeAnonKey) {
 // We exclusively use a relative URL so that the Vite proxy (in dev) and Vercel proxy (in prod)
 // handle all /api requests. This completely eliminates third-party cookie blocking issues.
 export const insforge = createClient({
-  baseUrl: '', 
+  baseUrl: typeof window !== 'undefined' ? window.location.origin : '', 
   anonKey: insforgeAnonKey || 'placeholder-key'
 });
