@@ -26,8 +26,11 @@ export default async function handler(req: Request) {
       headers: {
         'Cookie': cookieHeader,
         'Content-Type': 'application/json',
-        'apikey': insforgeAnonKey || ''
-      }
+        'apikey': insforgeAnonKey || '',
+        'Origin': 'https://draftdesk-steel.vercel.app',
+        'Referer': 'https://draftdesk-steel.vercel.app/'
+      },
+      body: JSON.stringify({})
     });
 
     const authData = await authRes.json();

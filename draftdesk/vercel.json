@@ -1,8 +1,28 @@
 {
   "rewrites": [
     {
-      "source": "/api/(.*)",
-      "destination": "https://swkc8nwa.ap-southeast.insforge.app/api/$1"
+      "source": "/api/auth/(.*)",
+      "destination": "/api/proxy?path=auth/$1"
+    },
+    {
+      "source": "/api/database/(.*)",
+      "destination": "/api/proxy?path=database/$1"
+    },
+    {
+      "source": "/api/storage/(.*)",
+      "destination": "/api/proxy?path=storage/$1"
+    },
+    {
+      "source": "/api/functions/(.*)",
+      "destination": "/api/proxy?path=functions/$1"
+    },
+    {
+      "source": "/api/ai/(.*)",
+      "destination": "/api/proxy?path=ai/$1"
+    },
+    {
+      "source": "/rest/v1/(.*)",
+      "destination": "/api/proxy?path=../rest/v1/$1"
     },
     {
       "source": "/(.*)",
