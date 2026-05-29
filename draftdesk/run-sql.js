@@ -7,23 +7,11 @@ async function run() {
   try {
     await client.connect();
     
-    // Drop all previous policies on storage.objects to avoid conflicts
     await client.query(`
-      DROP POLICY IF EXISTS "Public Access to Thumbnails" ON storage.objects;
-      DROP POLICY IF EXISTS "Auth Upload Thumbnails" ON storage.objects;
-      DROP POLICY IF EXISTS "Auth Update Thumbnails" ON storage.objects;
-      DROP POLICY IF EXISTS "Auth Delete Thumbnails" ON storage.objects;
-      DROP POLICY IF EXISTS "Allow All Storage" ON storage.objects;
-    `);
-
-    // Create one master permissive policy for debugging
-    await client.query(`
-      CREATE POLICY "Allow All Storage" 
-      ON storage.objects FOR ALL 
-      USING (true) WITH CHECK (true);
+      ALTER TABLE public.profiles ADD COLUMN IF NOT EXISTS ai_generations_count integer DEFAULT 0;
     `);
     
-    console.log('Applied master permissive policy!');
+    console.log('Applied ai_generations_count migration!');
   } catch (err) {
     console.error(err.message);
   } finally {

@@ -120,30 +120,68 @@ export default function ScriptEditor() {
     }
   }, [id, user]);
 
-  const handleGenerate = () => {
-    if (!topic.trim()) return;
+  const handleGenerate = async () => {
+    if (!topic.trim() || !user) return;
     setIsGenerating(true);
     setHasGenerated(false);
     
-    // Simulate API delay
-    setTimeout(() => {
-      setHook('Are you tired of staring at a blank screen? This one psychological trick will completely destroy your creative block in 5 seconds.');
-      setBodyContent('The "5-Minute Rule" is simple: commit to working on your task for just 5 minutes. No expectations.\n\nWhy does this work? It bypasses the amygdala\'s fear response to a large task. By shrinking the commitment, you eliminate the friction of starting. Once you start, momentum takes over.');
-      setCta('Try the 5-Minute Rule today. If it works for you, hit the subscribe button and let me know in the comments what task you finally crushed!');
+    try {
+      // Fetch user's profile for niche and style notes
+      const { data: profile } = await insforge.database
+        .from('profiles')
+        .select('niche, style_notes')
+        .eq('id', user.id)
+        .single();
+
+      // Call API
+      const res = await fetch('/api/generate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          topic,
+          niche: profile?.niche || '',
+          style_notes: profile?.style_notes || '',
+          platform
+        })
+      });
+
+      if (!res.ok) {
+        const errorData = await res.json().catch(() => null);
+        throw new Error(errorData?.error || 'Failed to generate script');
+      }
+
+      const generated = await res.json();
       
-      setBRollItems([
-        "Close-up of frustrated person at laptop",
-        "Quick zoom on a timer set to 5 minutes",
-        "Timelapse of productive work"
-      ]);
+      setHook(generated.hook || '');
+      setBodyContent(generated.body || '');
+      setCta(generated.cta || '');
       
-      setSeoTitle('How to Beat Creative Block (The 5-Minute Rule)');
-      setSeoDesc('Struggling to start your work? Learn the 5-Minute Rule to bypass your brain\'s fear response and build instant momentum.');
-      setTags(['#productivity', '#creativeblock', '#focus']);
+      if (generated.broll_notes) {
+        setBRollItems(generated.broll_notes.split(',').map((s: string) => s.trim()).filter(Boolean));
+      } else {
+        setBRollItems([]);
+      }
+      
+      setSeoTitle(generated.seo_title || '');
+      setSeoDesc(generated.seo_description || '');
+      
+      if (generated.seo_tags) {
+        setTags(generated.seo_tags.split(',').map((s: string) => s.trim()).filter(Boolean));
+      } else {
+        setTags([]);
+      }
       
       setIsGenerating(false);
       setHasGenerated(true);
-    }, 2000);
+      setToast({ message: "Script generated successfully!", type: "success" });
+      setTimeout(() => setToast(null), 3000);
+      
+    } catch (err: any) {
+      console.error(err);
+      setIsGenerating(false);
+      setToast({ message: err.message || "Script generation failed. Try again?", type: "error" });
+      setTimeout(() => setToast(null), 5000);
+    }
   };
 
   const handleSave = async () => {
